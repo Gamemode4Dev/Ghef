@@ -1,0 +1,24 @@
+{
+  "condition": "minecraft:entity_scores",
+  "entity": "this",
+  "scores": {
+    "ghef_col_id": {
+      "min": {
+        "type": "minecraft:score",
+        "target": {
+          "type": "minecraft:fixed",
+          "name": "curr"
+        },
+        "score": "ghef_col_id"
+      },
+      "max": {
+        "type": "minecraft:score",
+        "target": {
+          "type": "minecraft:fixed",
+          "name": "curr"
+        },
+        "score": "ghef_col_id"
+      }
+    }
+  }
+}
