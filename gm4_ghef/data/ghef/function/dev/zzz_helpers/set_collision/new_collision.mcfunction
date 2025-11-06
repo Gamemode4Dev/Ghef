@@ -4,7 +4,6 @@
 
 # set common data
 data merge entity @s {CustomName:"Collision Plane",Tags:["ghef_collision"]}
-execute store result score @s ghef_col_id run scoreboard players add new ghef_col_id 1
 scoreboard players set @s ghef_level_id -1
 
 # move to midpoint between pos1 and pos2
