@@ -1,5 +1,5 @@
 # @s = new collision marker
-# located at @s
+# located at player who ran the command
 # run from ghef:dev/zzz_helpers/set_collision/new_collision
 
 
@@ -66,6 +66,7 @@ execute store result score mag ghef_calc run data get storage ghef:data temp.dis
 execute store result entity @s data.ghef.normal.x double 0.00001 run scoreboard players operation @s ghef_nx /= mag ghef_calc
 execute store result entity @s data.ghef.normal.y double 0.00001 run scoreboard players operation @s ghef_ny /= mag ghef_calc
 execute store result entity @s data.ghef.normal.z double 0.00001 run scoreboard players operation @s ghef_nz /= mag ghef_calc
+execute at @s run function ghef:dev/zzz_helpers/set_collision/face_normal with entity @s data.ghef.normal
 
 
 # clean up

@@ -1,5 +1,5 @@
 # @s = new collision marker
-# located at @s
+# located at player who ran the command
 # run from ghef:dev/set_collision
 
 # set common data
