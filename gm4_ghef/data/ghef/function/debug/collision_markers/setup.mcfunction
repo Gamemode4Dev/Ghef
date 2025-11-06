@@ -35,5 +35,6 @@ scoreboard players operation check ghef_data %= #100000 ghef_data
 execute if score check ghef_data matches 0 store result storage ghef:data temp.macro.Dz double 0.00001 run scoreboard players add val ghef_data 1
 
 # draw particles
-execute at @s run function ghef:debug/collision_markers/particle with storage ghef:data temp.macro
+execute at @s[tag=ghef_collision_triangle] run function ghef:debug/collision_markers/particle_triangle with storage ghef:data temp.macro
+execute at @s[tag=!ghef_collision_triangle] run function ghef:debug/collision_markers/particle with storage ghef:data temp.macro
 data remove storage ghef:data temp.macro

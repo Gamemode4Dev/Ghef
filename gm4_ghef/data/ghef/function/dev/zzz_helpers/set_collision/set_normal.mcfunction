@@ -31,32 +31,44 @@ scoreboard players operation f ghef_calc = @s ghef_x3
 scoreboard players operation f ghef_calc -= @s ghef_x1
 
 
-# A = (By - Ay)(Cz - Az)
-scoreboard players operation @s ghef_nx = a ghef_calc
-scoreboard players operation @s ghef_nx *= b ghef_calc
-# B = (Bz - Az)(Cy - Ay)
-scoreboard players operation B ghef_calc = c ghef_calc
-scoreboard players operation B ghef_calc *= d ghef_calc
-# A = (By - Ay)(Cz - Az) - (Bz - Az)(Cy - Ay)
-execute store result storage ghef:data temp.macro.x float 0.00001 run scoreboard players operation @s ghef_nx -= B ghef_calc
+# nx = (By - Ay)(Cz - Az)
+execute store result storage ghef:data temp.macro.a double 0.00001 run scoreboard players get a ghef_calc
+execute store result storage ghef:data temp.macro.b double 0.00001 run scoreboard players get b ghef_calc
+function ghef:math/multiply
+execute store result score @s ghef_nx run data get storage ghef:data temp.value 100000
+# g = (Bz - Az)(Cy - Ay)
+execute store result storage ghef:data temp.macro.a double 0.00001 run scoreboard players get c ghef_calc
+execute store result storage ghef:data temp.macro.b double 0.00001 run scoreboard players get d ghef_calc
+function ghef:math/multiply
+execute store result score g ghef_calc run data get storage ghef:data temp.value 100000
+# nx = (By - Ay)(Cz - Az) - (Bz - Az)(Cy - Ay)
+execute store result storage ghef:data temp.macro.x float 0.00001 run scoreboard players operation @s ghef_nx -= g ghef_calc
 
-# A = (Bz - Az)(Cx - Ax)
-scoreboard players operation @s ghef_ny = c ghef_calc
-scoreboard players operation @s ghef_ny *= e ghef_calc
-# B = (Bx - Ax)(Cz - Az)
-scoreboard players operation B ghef_calc = f ghef_calc
-scoreboard players operation B ghef_calc *= b ghef_calc
-# A = (Bz - Az)(Cx - Ax) - (Bx - Ax)(Cz - Az)
-execute store result storage ghef:data temp.macro.y float 0.00001 run scoreboard players operation @s ghef_ny -= B ghef_calc
+# ny = (Bz - Az)(Cx - Ax)
+execute store result storage ghef:data temp.macro.a double 0.00001 run scoreboard players get c ghef_calc
+execute store result storage ghef:data temp.macro.b double 0.00001 run scoreboard players get e ghef_calc
+function ghef:math/multiply
+execute store result score @s ghef_ny run data get storage ghef:data temp.value 100000
+# g = (Bx - Ax)(Cz - Az)
+execute store result storage ghef:data temp.macro.a double 0.00001 run scoreboard players get f ghef_calc
+execute store result storage ghef:data temp.macro.b double 0.00001 run scoreboard players get b ghef_calc
+function ghef:math/multiply
+execute store result score g ghef_calc run data get storage ghef:data temp.value 100000
+# ny = (Bz - Az)(Cx - Ax) - (Bx - Ax)(Cz - Az)
+execute store result storage ghef:data temp.macro.y float 0.00001 run scoreboard players operation @s ghef_ny -= g ghef_calc
 
-# A = (Bx - Ax)(Cy - Ay)
-scoreboard players operation @s ghef_nz = f ghef_calc
-scoreboard players operation @s ghef_nz *= d ghef_calc
-# B = (By - Ay)(Cx - Ax)
-scoreboard players operation B ghef_calc = a ghef_calc
-scoreboard players operation B ghef_calc *= e ghef_calc
-# A = (Bx - Ax)(Cy - Ay) - (By - Ay)(Cx - Ax)
-execute store result storage ghef:data temp.macro.z float 0.00001 run scoreboard players operation @s ghef_nz -= B ghef_calc
+# nz = (Bx - Ax)(Cy - Ay)
+execute store result storage ghef:data temp.macro.a double 0.00001 run scoreboard players get f ghef_calc
+execute store result storage ghef:data temp.macro.b double 0.00001 run scoreboard players get d ghef_calc
+function ghef:math/multiply
+execute store result score @s ghef_nz run data get storage ghef:data temp.value 100000
+# g = (By - Ay)(Cx - Ax)
+execute store result storage ghef:data temp.macro.a double 0.00001 run scoreboard players get a ghef_calc
+execute store result storage ghef:data temp.macro.b double 0.00001 run scoreboard players get e ghef_calc
+function ghef:math/multiply
+execute store result score g ghef_calc run data get storage ghef:data temp.value 100000
+# nz = (Bx - Ax)(Cy - Ay) - (By - Ay)(Cx - Ax)
+execute store result storage ghef:data temp.macro.z float 0.00001 run scoreboard players operation @s ghef_nz -= g ghef_calc
 
 
 # compute unit vector
@@ -67,7 +79,3 @@ execute store result entity @s data.ghef.normal.x double 0.00001 run scoreboard 
 execute store result entity @s data.ghef.normal.y double 0.00001 run scoreboard players operation @s ghef_ny /= mag ghef_calc
 execute store result entity @s data.ghef.normal.z double 0.00001 run scoreboard players operation @s ghef_nz /= mag ghef_calc
 execute at @s run function ghef:dev/zzz_helpers/set_collision/face_normal with entity @s data.ghef.normal
-
-
-# clean up
-data remove storage ghef:data temp

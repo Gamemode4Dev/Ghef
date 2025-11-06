@@ -42,7 +42,13 @@ execute store result score @s ghef_z1 store result entity @s data.ghef.corners.A
 execute store result score @s ghef_z2 store result entity @s data.ghef.corners.Cz double 0.00001 run data get storage ghef:data temp.pos2[2] 100000
 execute store result score @s ghef_z3 store result entity @s data.ghef.corners.Bz double 0.00001 run data get storage ghef:data temp.pos3[2] 100000
 
-#   calculate 4th corner based on midpoint and 3rd corner
+# compute normal vector
+function ghef:dev/zzz_helpers/set_collision/set_normal
+
+# return early if this is a triangle mesh
+execute if score triangle ghef_data matches 1 run return run tag @s add ghef_collision_triangle
+
+# calculate 4th corner based on midpoint and 3rd corner
 execute store result score p1 ghef_data run data get storage ghef:data temp.posM[0] 100000
 execute store result score p2 ghef_data run data get storage ghef:data temp.pos3[0] 100000
 scoreboard players operation p2 ghef_data -= p1 ghef_data
@@ -57,6 +63,3 @@ execute store result score p1 ghef_data run data get storage ghef:data temp.posM
 execute store result score p2 ghef_data run data get storage ghef:data temp.pos3[2] 100000
 scoreboard players operation p2 ghef_data -= p1 ghef_data
 execute store result score @s ghef_z4 store result entity @s data.ghef.corners.Dz double 0.00001 run scoreboard players operation p1 ghef_data -= p2 ghef_data
-
-# compute normal vector
-function ghef:dev/zzz_helpers/set_collision/set_normal
