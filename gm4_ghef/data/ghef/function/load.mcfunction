@@ -3,7 +3,6 @@ tellraw @a {"text":"Ghef datapack loaded","color":"green"}
 scoreboard objectives add ghef_calc dummy
 scoreboard objectives add ghef_data dummy
 scoreboard objectives add ghef_level_id dummy
-scoreboard objectives add ghef_col_id dummy
 
 scoreboard objectives add ghef_x dummy
 scoreboard objectives add ghef_y dummy
