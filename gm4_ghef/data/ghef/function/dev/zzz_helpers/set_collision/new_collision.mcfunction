@@ -3,7 +3,7 @@
 # run from ghef:dev/set_collision
 
 # set common data
-data merge entity @s {CustomName:"Collision Plane",Tags:["ghef_collision"]}
+data merge entity @s {CustomName:"Collision Plane",Tags:["ghef_collision"],data:{ghef:{normal:{arr:[0.0,0.0,0.0]}}}}
 scoreboard players set @s ghef_level_id -1
 
 # move to midpoint between pos1 and pos2

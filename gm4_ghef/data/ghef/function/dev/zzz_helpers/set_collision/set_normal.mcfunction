@@ -75,9 +75,9 @@ execute store result storage ghef:data temp.pos.z float 0.00001 run scoreboard p
 function ghef:math/distance
 execute store result score mag ghef_calc run data get storage ghef:data temp.distance 1
 
-execute store result entity @s data.ghef.normal.x double 0.00001 run scoreboard players operation @s ghef_nx /= mag ghef_calc
-execute store result entity @s data.ghef.normal.y double 0.00001 run scoreboard players operation @s ghef_ny /= mag ghef_calc
-execute store result entity @s data.ghef.normal.z double 0.00001 run scoreboard players operation @s ghef_nz /= mag ghef_calc
+execute store result entity @s data.ghef.normal.arr[0] double 0.00001 store result entity @s data.ghef.normal.x double 0.00001 run scoreboard players operation @s ghef_nx /= mag ghef_calc
+execute store result entity @s data.ghef.normal.arr[1] double 0.00001 store result entity @s data.ghef.normal.y double 0.00001 run scoreboard players operation @s ghef_ny /= mag ghef_calc
+execute store result entity @s data.ghef.normal.arr[2] double 0.00001 store result entity @s data.ghef.normal.z double 0.00001 run scoreboard players operation @s ghef_nz /= mag ghef_calc
 execute at @s run function ghef:dev/zzz_helpers/set_collision/face_normal with entity @s data.ghef.normal
 
 # store global unit vector coordinates

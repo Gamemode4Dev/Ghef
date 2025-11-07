@@ -1,0 +1,2 @@
+these are used as references to be inlined
+they can still be used normally though, but aren't for efficiency
