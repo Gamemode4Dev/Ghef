@@ -79,3 +79,9 @@ execute store result entity @s data.ghef.normal.x double 0.00001 run scoreboard 
 execute store result entity @s data.ghef.normal.y double 0.00001 run scoreboard players operation @s ghef_ny /= mag ghef_calc
 execute store result entity @s data.ghef.normal.z double 0.00001 run scoreboard players operation @s ghef_nz /= mag ghef_calc
 execute at @s run function ghef:dev/zzz_helpers/set_collision/face_normal with entity @s data.ghef.normal
+
+# store global unit vector coordinates
+execute at @s positioned ^ ^ ^1 summon marker run function ghef:physics/util/get_coords
+execute store result entity @s data.ghef.normal.X double 0.00001 store result score @s ghef_nX run data get storage ghef:data temp.Pos[0] 100000
+execute store result entity @s data.ghef.normal.Y double 0.00001 store result score @s ghef_nY run data get storage ghef:data temp.Pos[1] 100000
+execute store result entity @s data.ghef.normal.Z double 0.00001 store result score @s ghef_nZ run data get storage ghef:data temp.Pos[2] 100000
