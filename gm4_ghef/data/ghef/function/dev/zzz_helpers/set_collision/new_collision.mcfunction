@@ -10,17 +10,17 @@ scoreboard players set @s ghef_level_id -1
 data modify storage ghef:data temp.pos1 set from entity @n[type=area_effect_cloud,tag=ghef_pos_1,distance=..50] Pos
 data modify storage ghef:data temp.pos2 set from entity @n[type=area_effect_cloud,tag=ghef_pos_2,distance=..50] Pos
 
-execute store result score p1 ghef_data run data get storage ghef:data temp.pos1[0] 100000
-execute store result score p2 ghef_data run data get storage ghef:data temp.pos2[0] 100000
-execute store result entity @s Pos[0] double 0.000005 run scoreboard players operation p1 ghef_data += p2 ghef_data
+execute store result score p1 ghef_calc run data get storage ghef:data temp.pos1[0] 100000
+execute store result score p2 ghef_calc run data get storage ghef:data temp.pos2[0] 100000
+execute store result entity @s Pos[0] double 0.000005 run scoreboard players operation p1 ghef_calc += p2 ghef_calc
 
-execute store result score p1 ghef_data run data get storage ghef:data temp.pos1[1] 100000
-execute store result score p2 ghef_data run data get storage ghef:data temp.pos2[1] 100000
-execute store result entity @s Pos[1] double 0.000005 run scoreboard players operation p1 ghef_data += p2 ghef_data
+execute store result score p1 ghef_calc run data get storage ghef:data temp.pos1[1] 100000
+execute store result score p2 ghef_calc run data get storage ghef:data temp.pos2[1] 100000
+execute store result entity @s Pos[1] double 0.000005 run scoreboard players operation p1 ghef_calc += p2 ghef_calc
 
-execute store result score p1 ghef_data run data get storage ghef:data temp.pos1[2] 100000
-execute store result score p2 ghef_data run data get storage ghef:data temp.pos2[2] 100000
-execute store result entity @s Pos[2] double 0.000005 run scoreboard players operation p1 ghef_data += p2 ghef_data
+execute store result score p1 ghef_calc run data get storage ghef:data temp.pos1[2] 100000
+execute store result score p2 ghef_calc run data get storage ghef:data temp.pos2[2] 100000
+execute store result entity @s Pos[2] double 0.000005 run scoreboard players operation p1 ghef_calc += p2 ghef_calc
 
 # store position data (also stored in entity data in case of scoreboard corruption)
 data modify storage ghef:data temp.pos3 set from entity @n[type=area_effect_cloud,tag=ghef_pos_3,distance=..50] Pos
@@ -48,17 +48,17 @@ function ghef:dev/zzz_helpers/set_collision/set_normal
 execute if score triangle ghef_data matches 1 run return run tag @s add ghef_collision_triangle
 
 # calculate 4th corner based on midpoint and 3rd corner
-execute store result score p1 ghef_data run data get storage ghef:data temp.posM[0] 100000
-execute store result score p2 ghef_data run data get storage ghef:data temp.pos3[0] 100000
-scoreboard players operation p2 ghef_data -= p1 ghef_data
-execute store result score @s ghef_x4 store result entity @s data.ghef.corners.Dx double 0.00001 run scoreboard players operation p1 ghef_data -= p2 ghef_data
+execute store result score p1 ghef_calc run data get storage ghef:data temp.posM[0] 100000
+execute store result score p2 ghef_calc run data get storage ghef:data temp.pos3[0] 100000
+scoreboard players operation p2 ghef_calc -= p1 ghef_calc
+execute store result score @s ghef_x4 store result entity @s data.ghef.corners.Dx double 0.00001 run scoreboard players operation p1 ghef_calc -= p2 ghef_calc
 
-execute store result score p1 ghef_data run data get storage ghef:data temp.posM[1] 100000
-execute store result score p2 ghef_data run data get storage ghef:data temp.pos3[1] 100000
-scoreboard players operation p2 ghef_data -= p1 ghef_data
-execute store result score @s ghef_y4 store result entity @s data.ghef.corners.Dy double 0.00001 run scoreboard players operation p1 ghef_data -= p2 ghef_data
+execute store result score p1 ghef_calc run data get storage ghef:data temp.posM[1] 100000
+execute store result score p2 ghef_calc run data get storage ghef:data temp.pos3[1] 100000
+scoreboard players operation p2 ghef_calc -= p1 ghef_calc
+execute store result score @s ghef_y4 store result entity @s data.ghef.corners.Dy double 0.00001 run scoreboard players operation p1 ghef_calc -= p2 ghef_calc
 
-execute store result score p1 ghef_data run data get storage ghef:data temp.posM[2] 100000
-execute store result score p2 ghef_data run data get storage ghef:data temp.pos3[2] 100000
-scoreboard players operation p2 ghef_data -= p1 ghef_data
-execute store result score @s ghef_z4 store result entity @s data.ghef.corners.Dz double 0.00001 run scoreboard players operation p1 ghef_data -= p2 ghef_data
+execute store result score p1 ghef_calc run data get storage ghef:data temp.posM[2] 100000
+execute store result score p2 ghef_calc run data get storage ghef:data temp.pos3[2] 100000
+scoreboard players operation p2 ghef_calc -= p1 ghef_calc
+execute store result score @s ghef_z4 store result entity @s data.ghef.corners.Dz double 0.00001 run scoreboard players operation p1 ghef_calc -= p2 ghef_calc

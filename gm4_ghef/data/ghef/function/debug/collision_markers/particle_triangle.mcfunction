@@ -1,7 +1,7 @@
 # @s = collision marker
 # located at @s
 # run from ghef:debug/setup
-# run with with storage ghef:data temp.macro
+# run with with storage ghef:data temp.corners
 
 particle minecraft:dust{color:[0.1, 0.2, 1], scale:1} ~ ~ ~ 0 0 0 0 1
 particle minecraft:dust{color:[0.3, 0.7, 1], scale:0.3} ^ ^ ^0.1 0 0 0 0 1
