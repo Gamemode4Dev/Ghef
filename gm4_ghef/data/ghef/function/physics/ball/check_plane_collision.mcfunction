@@ -3,5 +3,8 @@
 # run from ghef:physics/ball/calculate_motion
 
 tag @s add ghef_check
+tag @e[tag=ghef_collision,distance=..25] remove ghef_colliding
 execute as @e[type=marker,tag=ghef_collision,distance=..25] run function ghef:physics/plane/check_ball_collision with entity @e[type=marker,tag=ghef_check,limit=1,distance=..0.01] data.ghef
 tag @s remove ghef_check
+
+execute if entity @e[type=marker,tag=ghef_colliding,distance=..25] run particle end_rod ~ ~ ~ 0 0 0 0 1

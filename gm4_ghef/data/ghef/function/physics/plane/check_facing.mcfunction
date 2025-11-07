@@ -25,4 +25,6 @@ scoreboard players operation x ghef_calc += y ghef_calc
 scoreboard players operation x ghef_calc += z ghef_calc
 
 # execute if score x ghef_calc matches 200000.. run say @e[type=marker,tag=ghef_check,limit=1] collided with @s
-execute if score x ghef_calc matches 200000.. run particle flame ~ ~ ~ 0 0 0 0 1
+# execute if score x ghef_calc matches 200000.. run particle flame ~ ~ ~ 0 0 0 0 1
+execute if score x ghef_calc matches 200000.. run return 1
+return 0
