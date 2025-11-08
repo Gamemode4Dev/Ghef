@@ -9,11 +9,10 @@ scoreboard players operation Bx ghef_calc = @s ghef_x
 scoreboard players operation By ghef_calc = @s ghef_y
 scoreboard players operation Bz ghef_calc = @s ghef_z
 
-#     <B (overwrite)> = <B> - <A>
 execute store result storage ghef:data temp.mul.a double 0.00001 run scoreboard players operation Bx ghef_calc -= ball_x ghef_calc
 execute store result storage ghef:data temp.mul.b double 0.00001 run scoreboard players get @s ghef_nx
 execute summon item_display run function ghef:math/zzz_helpers/multiply/calculate with storage ghef:data temp.mul
-execute store result score dist ghef_calc run data get storage ghef:data temp.value 100000
+execute store result score D ghef_calc run data get storage ghef:data temp.value 100000
 
 execute store result storage ghef:data temp.mul.a double 0.00001 run scoreboard players operation By ghef_calc -= ball_y ghef_calc
 execute store result storage ghef:data temp.mul.b double 0.00001 run scoreboard players get @s ghef_ny

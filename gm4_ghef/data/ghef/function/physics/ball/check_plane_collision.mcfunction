@@ -3,6 +3,12 @@
 # run from ghef:physics/ball/calculate_motion
 
 tag @s add ghef_check
+
+# debug for axiom moving ball around
+execute store result score @s ghef_x run data get entity @s Pos[0] 100000
+execute store result score @s ghef_y run data get entity @s Pos[1] 100000
+execute store result score @s ghef_z run data get entity @s Pos[2] 100000
+
 scoreboard players operation ball_x ghef_calc = @s ghef_x
 scoreboard players operation ball_y ghef_calc = @s ghef_y
 scoreboard players operation ball_z ghef_calc = @s ghef_z
