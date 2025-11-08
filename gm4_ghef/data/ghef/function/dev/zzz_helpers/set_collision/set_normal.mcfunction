@@ -4,6 +4,7 @@
 
 
 ###
+# (B - A) x (C - A)
 # n_x = (By - Ay)(Cz - Az) - (Bz - Az)(Cy - Ay)
 # n_y = (Bz - Az)(Cx - Ax) - (Bx - Ax)(Cz - Az)
 # n_z = (Bx - Ax)(Cy - Ay) - (By - Ay)(Cx - Ax)
