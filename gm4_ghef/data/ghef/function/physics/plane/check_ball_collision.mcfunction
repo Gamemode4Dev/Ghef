@@ -72,8 +72,12 @@ scoreboard players set inside ghef_calc 0
 execute if score c0 ghef_calc matches 0.. if score c1 ghef_calc matches 0.. if score c2 ghef_calc matches 0.. run scoreboard players set inside ghef_calc 1
 execute if score c0 ghef_calc matches ..0 if score c1 ghef_calc matches ..0 if score c2 ghef_calc matches ..0 run scoreboard players set inside ghef_calc 1
 
+
+# if projected center is not inside, check distance to each line segment
+execute if score inside ghef_calc matches 0 run function ghef:physics/plane/check_ball_collision/check_line_segments
 execute if score inside ghef_calc matches 0 run return fail
 
 
+# finally, we know that the ball is intersecting the plane
 execute at @s run particle flame ~ ~ ~ 0 0 0 0 1
 return run tag @s add ghef_colliding
