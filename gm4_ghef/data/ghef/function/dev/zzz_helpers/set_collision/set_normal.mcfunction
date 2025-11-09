@@ -13,23 +13,23 @@
 ###
 
 # a = By - Ay
-scoreboard players operation a ghef_calc = @s ghef_y3
-scoreboard players operation a ghef_calc -= @s ghef_y1
+scoreboard players operation a ghef_calc = @s ghef_By
+scoreboard players operation a ghef_calc -= @s ghef_Ay
 # b = Cz - Az
-scoreboard players operation b ghef_calc = @s ghef_z2
-scoreboard players operation b ghef_calc -= @s ghef_z1
+scoreboard players operation b ghef_calc = @s ghef_Cz
+scoreboard players operation b ghef_calc -= @s ghef_Az
 # c = Bz - Az
-scoreboard players operation c ghef_calc = @s ghef_z3
-scoreboard players operation c ghef_calc -= @s ghef_z1
+scoreboard players operation c ghef_calc = @s ghef_Bz
+scoreboard players operation c ghef_calc -= @s ghef_Az
 # d = Cy - Ay
-scoreboard players operation d ghef_calc = @s ghef_y2
-scoreboard players operation d ghef_calc -= @s ghef_y1
+scoreboard players operation d ghef_calc = @s ghef_Cy
+scoreboard players operation d ghef_calc -= @s ghef_Ay
 # e = Cx - Ax
-scoreboard players operation e ghef_calc = @s ghef_x2
-scoreboard players operation e ghef_calc -= @s ghef_x1
+scoreboard players operation e ghef_calc = @s ghef_Cx
+scoreboard players operation e ghef_calc -= @s ghef_Ax
 # f = Bx - Ax
-scoreboard players operation f ghef_calc = @s ghef_x3
-scoreboard players operation f ghef_calc -= @s ghef_x1
+scoreboard players operation f ghef_calc = @s ghef_Bx
+scoreboard players operation f ghef_calc -= @s ghef_Ax
 
 
 # nx = (By - Ay)(Cz - Az)

@@ -60,11 +60,11 @@ scoreboard players operation Pz ghef_calc = ball_z ghef_calc
 scoreboard players operation Pz ghef_calc -= P ghef_calc
 
 #    calculate cross products (annotated using corners A B C, point P) and dot product with normal vector
-#    (P - A) x (B - A) • N
+#    (P - A) x (C - A) • N
 function ghef:physics/plane/check_ball_collision/check_points/c0
-#    (P - B) x (C - B) • N
+#    (P - C) x (B - C) • N
 function ghef:physics/plane/check_ball_collision/check_points/c1
-#    (P - C) x (A - C) • N
+#    (P - B) x (A - B) • N
 function ghef:physics/plane/check_ball_collision/check_points/c2
 
 #    check if all 3 have the same sign

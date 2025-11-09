@@ -14,21 +14,21 @@ scoreboard objectives add ghef_x dummy
 scoreboard objectives add ghef_y dummy
 scoreboard objectives add ghef_z dummy
 
-scoreboard objectives add ghef_x1 dummy
-scoreboard objectives add ghef_y1 dummy
-scoreboard objectives add ghef_z1 dummy
+scoreboard objectives add ghef_Ax dummy
+scoreboard objectives add ghef_Ay dummy
+scoreboard objectives add ghef_Az dummy
 
-scoreboard objectives add ghef_x2 dummy
-scoreboard objectives add ghef_y2 dummy
-scoreboard objectives add ghef_z2 dummy
+scoreboard objectives add ghef_Bx dummy
+scoreboard objectives add ghef_By dummy
+scoreboard objectives add ghef_Bz dummy
 
-scoreboard objectives add ghef_x3 dummy
-scoreboard objectives add ghef_y3 dummy
-scoreboard objectives add ghef_z3 dummy
+scoreboard objectives add ghef_Cx dummy
+scoreboard objectives add ghef_Cy dummy
+scoreboard objectives add ghef_Cz dummy
 
-scoreboard objectives add ghef_x4 dummy
-scoreboard objectives add ghef_y4 dummy
-scoreboard objectives add ghef_z4 dummy
+scoreboard objectives add ghef_Dx dummy
+scoreboard objectives add ghef_Dy dummy
+scoreboard objectives add ghef_Dz dummy
 
 # normal vector
 scoreboard objectives add ghef_nx dummy
