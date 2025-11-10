@@ -96,8 +96,13 @@ execute store result score z4 ghef_calc run data get storage ghef:data temp.valu
 scoreboard players operation distance_squared ghef_calc += y4 ghef_calc
 scoreboard players operation distance_squared ghef_calc += z4 ghef_calc
 
-execute if score distance_squared ghef_calc < radius_squared ghef_calc run return run scoreboard players set inside ghef_calc 2
+execute if score distance_squared ghef_calc < radius_squared ghef_calc run scoreboard players set inside ghef_calc 2
 
+# store intersection vector
+scoreboard players operation Ix ghef_calc = x3 ghef_calc
+scoreboard players operation Iy ghef_calc = y3 ghef_calc
+scoreboard players operation Iz ghef_calc = z3 ghef_calc
+scoreboard players operation min_dist_sq ghef_calc = distance_squared ghef_calc
 
 
 # find closest point to segment AC
@@ -185,8 +190,13 @@ execute store result score z4 ghef_calc run data get storage ghef:data temp.valu
 scoreboard players operation distance_squared ghef_calc += y4 ghef_calc
 scoreboard players operation distance_squared ghef_calc += z4 ghef_calc
 
-execute if score distance_squared ghef_calc < radius_squared ghef_calc run return run scoreboard players set inside ghef_calc 2
+execute if score distance_squared ghef_calc < radius_squared ghef_calc run scoreboard players set inside ghef_calc 2
 
+# store intersection vector
+execute if score distance_squared ghef_calc < min_dist_sq ghef_calc run scoreboard players operation Ix ghef_calc = x3 ghef_calc
+execute if score distance_squared ghef_calc < min_dist_sq ghef_calc run scoreboard players operation Iy ghef_calc = y3 ghef_calc
+execute if score distance_squared ghef_calc < min_dist_sq ghef_calc run scoreboard players operation Iz ghef_calc = z3 ghef_calc
+execute if score distance_squared ghef_calc < min_dist_sq ghef_calc run scoreboard players operation min_dist_sq ghef_calc = distance_squared ghef_calc
 
 
 # find closest point to segment CB
@@ -277,8 +287,44 @@ execute store result score z4 ghef_calc run data get storage ghef:data temp.valu
 scoreboard players operation distance_squared ghef_calc += y4 ghef_calc
 scoreboard players operation distance_squared ghef_calc += z4 ghef_calc
 
-execute if score distance_squared ghef_calc < radius_squared ghef_calc run return run scoreboard players set inside ghef_calc 2
+execute if score distance_squared ghef_calc < radius_squared ghef_calc run scoreboard players set inside ghef_calc 2
+
+# store intersection vector
+execute if score distance_squared ghef_calc < min_dist_sq ghef_calc run scoreboard players operation Ix ghef_calc = x3 ghef_calc
+execute if score distance_squared ghef_calc < min_dist_sq ghef_calc run scoreboard players operation Iy ghef_calc = y3 ghef_calc
+execute if score distance_squared ghef_calc < min_dist_sq ghef_calc run scoreboard players operation Iz ghef_calc = z3 ghef_calc
+execute if score distance_squared ghef_calc < min_dist_sq ghef_calc run scoreboard players operation min_dist_sq ghef_calc = distance_squared ghef_calc
 
 
 # check closest points to CD and AD
 execute unless entity @s[tag=ghef_collision_triangle] run function ghef:physics/plane/check_ball_collision/parallelogram/line_segments
+
+
+# store normalized penetration vector (negative normalized intersection vector)
+execute store result storage ghef:data temp.pos.x float 0.00001 run scoreboard players get Ix ghef_calc
+execute store result storage ghef:data temp.pos.y float 0.00001 run scoreboard players get Iy ghef_calc
+execute store result storage ghef:data temp.pos.z float 0.00001 run scoreboard players get Iz ghef_calc
+execute summon item_display run function ghef:math/zzz_helpers/distance/calculate with storage ghef:data temp.pos
+execute store result score mag ghef_calc run data get storage ghef:data temp.distance -1000
+
+scoreboard players operation Ix ghef_calc *= #10 ghef_data
+scoreboard players operation Iy ghef_calc *= #10 ghef_data
+scoreboard players operation Iz ghef_calc *= #10 ghef_data
+
+scoreboard players operation Ix ghef_calc /= mag ghef_calc
+scoreboard players operation Iy ghef_calc /= mag ghef_calc
+scoreboard players operation Iz ghef_calc /= mag ghef_calc
+
+scoreboard players operation Ix ghef_calc *= #100 ghef_data
+scoreboard players operation Iy ghef_calc *= #100 ghef_data
+scoreboard players operation Iz ghef_calc *= #100 ghef_data
+
+scoreboard players operation @s ghef_px = Ix ghef_calc
+scoreboard players operation @s ghef_py = Iy ghef_calc
+scoreboard players operation @s ghef_pz = Iz ghef_calc
+
+# store penetration depth
+scoreboard players operation mag ghef_calc *= #-100 ghef_data
+scoreboard players operation I ghef_calc = radius ghef_calc
+scoreboard players operation I ghef_calc -= mag ghef_calc
+scoreboard players operation @s ghef_p = I ghef_calc

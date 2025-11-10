@@ -1,5 +1,9 @@
+scoreboard players set #-100 ghef_data -100
 scoreboard players set #-1 ghef_data -1
 scoreboard players set #0 ghef_data 0
 scoreboard players set #2 ghef_data 2
 scoreboard players set #6 ghef_data 6
+scoreboard players set #10 ghef_data 10
+scoreboard players set #100 ghef_data 100
+scoreboard players set #10000 ghef_data 10000
 scoreboard players set #100000 ghef_data 100000

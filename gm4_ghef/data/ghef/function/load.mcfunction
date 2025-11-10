@@ -35,6 +35,12 @@ scoreboard objectives add ghef_nx dummy
 scoreboard objectives add ghef_ny dummy
 scoreboard objectives add ghef_nz dummy
 
+# penetration normal vector + magnitude
+scoreboard objectives add ghef_px dummy
+scoreboard objectives add ghef_py dummy
+scoreboard objectives add ghef_pz dummy
+scoreboard objectives add ghef_p dummy
+
 # normal unit vector global location
 scoreboard objectives add ghef_nX dummy
 scoreboard objectives add ghef_nY dummy
