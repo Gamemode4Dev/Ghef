@@ -2,7 +2,7 @@
 # located at world spawn
 # run from ghef:setup/tick_ball
 
-# dampen motion less than 500
+# dampen motion less than 500 (0.005 blocks per tick)
 scoreboard players set @s[scores={ghef_vx=-500..500}] ghef_vx 0
 scoreboard players set @s[scores={ghef_vy=-500..500}] ghef_vy 0
 scoreboard players set @s[scores={ghef_vz=-500..500}] ghef_vz 0
@@ -26,46 +26,7 @@ execute store result entity @s Pos[1] double 0.00001 run scoreboard players oper
 execute store result entity @s Pos[2] double 0.00001 run scoreboard players operation @s ghef_z += @s ghef_vz
 
 # check collisions
-execute at @s unless function ghef:physics/ball/check_plane_collision run return fail
-
-# multiply velocity by penetration normal of the plane it hit => ball velocity - (2 * dot(ball velocity , penetration normal) * penetration normal)
-#    calculate dot product
-execute store result storage ghef:data temp.mul.a double 0.00001 run scoreboard players get @s ghef_vx
-execute store result storage ghef:data temp.mul.b double 0.00001 run scoreboard players get @e[type=marker,tag=ghef_colliding,limit=1] ghef_px
-execute summon item_display run function ghef:math/zzz_helpers/multiply/calculate with storage ghef:data temp.mul
-execute store result score x ghef_calc run data get storage ghef:data temp.value 100000
-
-execute store result storage ghef:data temp.mul.a double 0.00001 run scoreboard players get @s ghef_vy
-execute store result storage ghef:data temp.mul.b double 0.00001 run scoreboard players get @e[type=marker,tag=ghef_colliding,limit=1] ghef_py
-execute summon item_display run function ghef:math/zzz_helpers/multiply/calculate with storage ghef:data temp.mul
-execute store result score y ghef_calc run data get storage ghef:data temp.value 100000
-
-execute store result storage ghef:data temp.mul.a double 0.00001 run scoreboard players get @s ghef_vz
-execute store result storage ghef:data temp.mul.b double 0.00001 run scoreboard players get @e[type=marker,tag=ghef_colliding,limit=1] ghef_pz
-execute summon item_display run function ghef:math/zzz_helpers/multiply/calculate with storage ghef:data temp.mul
-execute store result score z ghef_calc run data get storage ghef:data temp.value 100000
-
-scoreboard players operation x ghef_calc += y ghef_calc
-scoreboard players operation x ghef_calc += z ghef_calc
-
-execute store result storage ghef:data temp.mul.a double 0.00001 run scoreboard players get x ghef_calc
-
-#    apply velocity
-execute store result storage ghef:data temp.mul.b double 0.00001 run scoreboard players get @e[type=marker,tag=ghef_colliding,limit=1] ghef_px
-execute summon item_display run function ghef:math/zzz_helpers/multiply/calculate with storage ghef:data temp.mul
-execute store result score x ghef_calc run data get storage ghef:data temp.value 200000
-
-execute store result storage ghef:data temp.mul.b double 0.00001 run scoreboard players get @e[type=marker,tag=ghef_colliding,limit=1] ghef_py
-execute summon item_display run function ghef:math/zzz_helpers/multiply/calculate with storage ghef:data temp.mul
-execute store result score y ghef_calc run data get storage ghef:data temp.value 200000
-
-execute store result storage ghef:data temp.mul.b double 0.00001 run scoreboard players get @e[type=marker,tag=ghef_colliding,limit=1] ghef_pz
-execute summon item_display run function ghef:math/zzz_helpers/multiply/calculate with storage ghef:data temp.mul
-execute store result score z ghef_calc run data get storage ghef:data temp.value 200000
-
-scoreboard players operation @s ghef_vx -= x ghef_calc
-scoreboard players operation @s ghef_vy -= y ghef_calc
-scoreboard players operation @s ghef_vz -= z ghef_calc
+execute at @s run function ghef:physics/ball/check_plane_collision
 
 # kill balls that fall out of the world
 execute at @s run kill @s[dx=-1,dz=-1,y=-20,dy=10]

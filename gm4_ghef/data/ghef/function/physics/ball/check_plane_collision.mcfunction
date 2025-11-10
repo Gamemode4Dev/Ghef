@@ -2,24 +2,38 @@
 # located at @s
 # run from ghef:physics/ball/calculate_motion
 
-tag @s add ghef_check
-
 # debug for axiom moving ball around
 execute store result score @s ghef_x run data get entity @s Pos[0] 100000
 execute store result score @s ghef_y run data get entity @s Pos[1] 100000
 execute store result score @s ghef_z run data get entity @s Pos[2] 100000
 
+# set up collision variables
 scoreboard players operation ball_x ghef_calc = @s ghef_x
 scoreboard players operation ball_y ghef_calc = @s ghef_y
 scoreboard players operation ball_z ghef_calc = @s ghef_z
 scoreboard players operation radius ghef_calc = @s ghef_radius
 
-tag @e[tag=ghef_collision,distance=..25] remove ghef_colliding
-execute as @e[type=marker,tag=ghef_collision,distance=..25] run function ghef:physics/plane/check_ball_collision
-tag @s remove ghef_check
+scoreboard players operation ball_vx ghef_calc = @s ghef_vx
+scoreboard players operation ball_vy ghef_calc = @s ghef_vy
+scoreboard players operation ball_vz ghef_calc = @s ghef_vz
 
+tag @e[tag=ghef_collision,distance=..25] remove ghef_colliding
+
+# detect collision with all nearby planes
+execute as @e[type=marker,tag=ghef_collision,distance=..25] run function ghef:physics/plane/check_ball_collision
+
+# check if a collision occurred
 execute unless entity @e[type=marker,tag=ghef_colliding,distance=..25,limit=1] run return fail
 
-execute if score markers ghef_data matches 1 run particle end_rod ~ ~ ~ 0 0 0 0 1
+# bounce off of closest plane (largest penetration depth)
+scoreboard players set max_pen ghef_calc -2147483648
+scoreboard players operation max_pen ghef_calc > @e[type=marker,tag=ghef_colliding,distance=..25] ghef_p
+execute as @e[type=marker,tag=ghef_colliding,predicate=ghef:physics/closest_plane,distance=..25,limit=1] run function ghef:physics/ball/collision_response
 
+scoreboard players operation @s ghef_vx -= dvx ghef_calc
+scoreboard players operation @s ghef_vy -= dvy ghef_calc
+scoreboard players operation @s ghef_vz -= dvz ghef_calc
+
+# clean up
+execute if score markers ghef_data matches 1 run particle end_rod ~ ~ ~ 0 0 0 0 1
 return 1
