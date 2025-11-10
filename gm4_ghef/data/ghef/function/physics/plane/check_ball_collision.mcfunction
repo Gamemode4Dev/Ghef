@@ -79,5 +79,5 @@ execute if score inside ghef_calc matches 0 run return fail
 
 
 # finally, we know that the ball is intersecting the plane
-execute at @s run particle flame ~ ~ ~ 0 0 0 0 1
-return run tag @s add ghef_colliding
+execute if score markers ghef_data matches 1 at @s run particle flame ~ ~ ~ 0 0 0 0 1
+tag @s add ghef_colliding

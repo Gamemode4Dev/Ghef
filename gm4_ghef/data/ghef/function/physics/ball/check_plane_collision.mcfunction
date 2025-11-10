@@ -18,4 +18,8 @@ tag @e[tag=ghef_collision,distance=..25] remove ghef_colliding
 execute as @e[type=marker,tag=ghef_collision,distance=..25] run function ghef:physics/plane/check_ball_collision
 tag @s remove ghef_check
 
-execute if entity @e[type=marker,tag=ghef_colliding,distance=..25] run particle end_rod ~ ~ ~ 0 0 0 0 1
+execute unless entity @e[type=marker,tag=ghef_colliding,distance=..25,limit=1] run return fail
+
+execute if score markers ghef_data matches 1 run particle end_rod ~ ~ ~ 0 0 0 0 1
+
+return 1

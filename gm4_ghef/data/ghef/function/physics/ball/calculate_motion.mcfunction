@@ -25,12 +25,8 @@ execute store result entity @s Pos[0] double 0.00001 run scoreboard players oper
 execute store result entity @s Pos[1] double 0.00001 run scoreboard players operation @s ghef_y += @s ghef_vy
 execute store result entity @s Pos[2] double 0.00001 run scoreboard players operation @s ghef_z += @s ghef_vz
 
-# kill balls that fall out of the world
-execute at @s run kill @s[dx=-1,dz=-1,y=-20,dy=10]
-
 # check collisions
-execute at @s run function ghef:physics/ball/check_plane_collision
-execute unless entity @e[type=marker,tag=ghef_colliding,limit=1] run return fail
+execute at @s unless function ghef:physics/ball/check_plane_collision run return fail
 
 # multiply velocity by normal of the plane it hit => ball velocity - (2 * dot(ball velocity , plane normal) * plane normal)
 execute store result storage ghef:data temp.mul.a double 0.00001 run scoreboard players get @s ghef_vx
@@ -69,3 +65,6 @@ execute store result score z ghef_calc run data get storage ghef:data temp.value
 scoreboard players operation @s ghef_vx -= x ghef_calc
 scoreboard players operation @s ghef_vy -= y ghef_calc
 scoreboard players operation @s ghef_vz -= z ghef_calc
+
+# kill balls that fall out of the world
+execute at @s run kill @s[dx=-1,dz=-1,y=-20,dy=10]
