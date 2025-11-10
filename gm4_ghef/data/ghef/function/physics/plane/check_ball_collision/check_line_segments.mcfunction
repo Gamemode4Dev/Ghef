@@ -277,4 +277,8 @@ execute store result score z4 ghef_calc run data get storage ghef:data temp.valu
 scoreboard players operation distance_squared ghef_calc += y4 ghef_calc
 scoreboard players operation distance_squared ghef_calc += z4 ghef_calc
 
-execute if score distance_squared ghef_calc < radius_squared ghef_calc run scoreboard players set inside ghef_calc 2
+execute if score distance_squared ghef_calc < radius_squared ghef_calc run return run scoreboard players set inside ghef_calc 2
+
+
+# check closest points to CD and AD
+execute unless entity @s[tag=ghef_collision_triangle] run function ghef:physics/plane/check_ball_collision/parallelogram/line_segments

@@ -25,4 +25,4 @@ scoreboard players operation f ghef_calc = Px ghef_calc
 scoreboard players operation f ghef_calc -= @s ghef_Cx
 
 # calculate cross product (Vx,Vy,Vz) and dot product dot(V,normal)
-execute store result score c1 ghef_calc run function ghef:physics/plane/check_ball_collision/check_points/cross_and_dot
+execute store result score cb ghef_calc run function ghef:physics/plane/check_ball_collision/check_points/cross_and_dot

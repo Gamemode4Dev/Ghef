@@ -60,18 +60,20 @@ scoreboard players operation Pz ghef_calc = ball_z ghef_calc
 scoreboard players operation Pz ghef_calc -= P ghef_calc
 
 #    calculate cross products (annotated using corners A B C, point P) and dot product with normal vector
-#    (P - A) x (C - A) • N
-function ghef:physics/plane/check_ball_collision/check_points/c0
-#    (P - C) x (B - C) • N
-function ghef:physics/plane/check_ball_collision/check_points/c1
-#    (P - B) x (A - B) • N
-function ghef:physics/plane/check_ball_collision/check_points/c2
+#    (P - A) x (C - A) • N => (APxAC)•N
+function ghef:physics/plane/check_ball_collision/check_points/ac
+#    (P - C) x (B - C) • N => (CPxCB)•N
+function ghef:physics/plane/check_ball_collision/check_points/cb
+#    (P - B) x (A - B) • N => (BPxBA)•N
+function ghef:physics/plane/check_ball_collision/check_points/ba
 
 #    check if all 3 have the same sign
 scoreboard players set inside ghef_calc 0
-execute if score c0 ghef_calc matches 0.. if score c1 ghef_calc matches 0.. if score c2 ghef_calc matches 0.. run scoreboard players set inside ghef_calc 1
-execute if score c0 ghef_calc matches ..0 if score c1 ghef_calc matches ..0 if score c2 ghef_calc matches ..0 run scoreboard players set inside ghef_calc 1
+execute if score ac ghef_calc matches 0.. if score cb ghef_calc matches 0.. if score ba ghef_calc matches 0.. run scoreboard players set inside ghef_calc 1
+execute if score ac ghef_calc matches ..0 if score cb ghef_calc matches ..0 if score ba ghef_calc matches ..0 run scoreboard players set inside ghef_calc 1
 
+#    calculate and check segments for parallelogram surface
+execute unless entity @s[tag=ghef_collision_triangle] run function ghef:physics/plane/check_ball_collision/parallelogram/center_projection
 
 # if projected center is not inside, check distance to each line segment
 execute if score inside ghef_calc matches 0 run function ghef:physics/plane/check_ball_collision/check_line_segments
