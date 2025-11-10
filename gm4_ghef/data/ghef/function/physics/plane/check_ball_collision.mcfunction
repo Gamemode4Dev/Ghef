@@ -30,7 +30,7 @@ scoreboard players operation dist ghef_calc += z ghef_calc
 #    check if distance from center of ball to closest point on plane <dist> is less than radius of ball
 execute if score dist ghef_calc > radius ghef_calc run return fail
 scoreboard players operation radius ghef_calc *= #-1 ghef_data
-execute if score dist ghef_calc < radius ghef_calc run return fail
+execute if score dist ghef_calc < radius ghef_calc run return run scoreboard players operation radius ghef_calc *= #-1 ghef_data
 
 
 # check if projected center point is within bounds
