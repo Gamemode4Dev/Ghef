@@ -37,7 +37,7 @@ execute store result storage ghef:data temp.mul.b double 0.00001 run scoreboard 
 execute summon item_display run function ghef:math/zzz_helpers/multiply/calculate with storage ghef:data temp.mul
 execute store result score dvz ghef_calc run data get storage ghef:data temp.value 200000
 
-# push ball away from plane => ball position -= (plane normal * penetration depth)
+# push ball away from plane => ball position += (plane normal * penetration depth)
 execute store result storage ghef:data temp.mul.a double 0.00001 run scoreboard players get @s ghef_p
 
 execute store result storage ghef:data temp.mul.b double 0.00001 run scoreboard players get @s ghef_nx

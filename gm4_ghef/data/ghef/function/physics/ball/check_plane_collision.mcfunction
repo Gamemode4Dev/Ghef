@@ -30,9 +30,9 @@ scoreboard players operation @s ghef_vx -= dvx ghef_calc
 scoreboard players operation @s ghef_vy -= dvy ghef_calc
 scoreboard players operation @s ghef_vz -= dvz ghef_calc
 
-scoreboard players operation @s ghef_x -= dx ghef_calc
-scoreboard players operation @s ghef_y -= dy ghef_calc
-scoreboard players operation @s ghef_z -= dz ghef_calc
+scoreboard players operation @s ghef_x += dx ghef_calc
+scoreboard players operation @s ghef_y += dy ghef_calc
+scoreboard players operation @s ghef_z += dz ghef_calc
 
 # clean up
 execute if score markers ghef_data matches 1 run particle end_rod ~ ~ ~ 0 0 0 0 1
