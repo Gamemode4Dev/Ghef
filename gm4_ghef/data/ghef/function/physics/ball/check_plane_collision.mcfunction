@@ -22,17 +22,17 @@ tag @e[tag=ghef_collision,distance=..25] remove ghef_colliding
 # detect collision with all nearby planes
 execute as @e[type=marker,tag=ghef_collision,distance=..25] run function ghef:physics/plane/check_ball_collision
 
-# check if a collision occurred
+# apply collision
 execute unless entity @e[type=marker,tag=ghef_colliding,distance=..25,limit=1] run return fail
-
-# bounce off of closest plane (largest penetration depth)
-scoreboard players set max_pen ghef_calc -2147483648
-scoreboard players operation max_pen ghef_calc > @e[type=marker,tag=ghef_colliding,distance=..25] ghef_p
-execute as @e[type=marker,tag=ghef_colliding,predicate=ghef:physics/closest_plane,distance=..25,limit=1] run function ghef:physics/ball/collision_response
+execute as @e[type=marker,tag=ghef_colliding,distance=..25] run function ghef:physics/ball/collision_response
 
 scoreboard players operation @s ghef_vx -= dvx ghef_calc
 scoreboard players operation @s ghef_vy -= dvy ghef_calc
 scoreboard players operation @s ghef_vz -= dvz ghef_calc
+
+scoreboard players operation @s ghef_x -= dx ghef_calc
+scoreboard players operation @s ghef_y -= dy ghef_calc
+scoreboard players operation @s ghef_z -= dz ghef_calc
 
 # clean up
 execute if score markers ghef_data matches 1 run particle end_rod ~ ~ ~ 0 0 0 0 1

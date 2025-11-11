@@ -20,13 +20,13 @@ scoreboard players operation @s ghef_vx > radius ghef_calc
 scoreboard players operation @s ghef_vy > radius ghef_calc
 scoreboard players operation @s ghef_vz > radius ghef_calc
 
+# check collisions
+execute at @s run function ghef:physics/ball/check_plane_collision
+
 # apply motion
 execute store result entity @s Pos[0] double 0.00001 run scoreboard players operation @s ghef_x += @s ghef_vx
 execute store result entity @s Pos[1] double 0.00001 run scoreboard players operation @s ghef_y += @s ghef_vy
 execute store result entity @s Pos[2] double 0.00001 run scoreboard players operation @s ghef_z += @s ghef_vz
-
-# check collisions
-execute at @s run function ghef:physics/ball/check_plane_collision
 
 # kill balls that fall out of the world
 execute at @s run kill @s[dx=-1,dz=-1,y=-20,dy=10]
