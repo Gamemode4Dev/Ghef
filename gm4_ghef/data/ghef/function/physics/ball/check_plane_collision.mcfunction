@@ -24,7 +24,7 @@ execute as @e[type=marker,tag=ghef_collision,distance=..25] run function ghef:ph
 
 # apply collision
 execute unless entity @e[type=marker,tag=ghef_colliding,distance=..25,limit=1] run return fail
-execute as @e[type=marker,tag=ghef_colliding,distance=..25] run function ghef:physics/ball/collision_response
+execute as @e[type=marker,tag=ghef_colliding,distance=..25] run function ghef:physics/plane/collision_response
 
 scoreboard players operation @s ghef_vx -= dvx ghef_calc
 scoreboard players operation @s ghef_vy -= dvy ghef_calc

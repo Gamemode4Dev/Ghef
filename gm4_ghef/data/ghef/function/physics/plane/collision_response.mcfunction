@@ -1,6 +1,6 @@
 # @s = collision plane that the ball hit
 # located at the ball
-# run from ghef:physics/ball/calculate_motion
+# run from ghef:physics/ball/check_plane_collision
 
 # multiply velocity by penetration normal of the plane it hit => ball velocity - (2 * dot(ball velocity , penetration normal) * penetration normal)
 #    calculate dot product
