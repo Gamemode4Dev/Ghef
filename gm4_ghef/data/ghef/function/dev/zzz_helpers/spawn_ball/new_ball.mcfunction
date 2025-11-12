@@ -13,4 +13,5 @@ scoreboard players set @s ghef_vy 0
 scoreboard players set @s ghef_vz 0
 
 scoreboard players set @s ghef_level_id -1
-execute store result entity @s data.ghef.radius double 0.00001 run scoreboard players set @s ghef_radius 10000
+execute store result entity @s data.ghef.radius double 0.00001 run scoreboard players set @s ghef_radius 25000
+execute store result entity @s data.ghef.friction double 0.00001 run scoreboard players set @s ghef_friction 100

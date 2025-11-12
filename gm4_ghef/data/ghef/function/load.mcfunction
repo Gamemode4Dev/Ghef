@@ -8,6 +8,7 @@ scoreboard objectives add ghef_data dummy
 # physics objects
 scoreboard objectives add ghef_level_id dummy
 scoreboard objectives add ghef_radius dummy
+scoreboard objectives add ghef_friction dummy
 
 # positions
 scoreboard objectives add ghef_x dummy

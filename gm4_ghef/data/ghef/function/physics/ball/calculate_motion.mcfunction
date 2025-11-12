@@ -2,11 +2,31 @@
 # located at world spawn
 # run from ghef:setup/tick_ball
 
-# dampen motion less than 500 (0.005 blocks per tick)
+# dampen x and z motion when rolling on flat surface
+scoreboard players set rolling_x ghef_calc 0
+execute if entity @s[scores={ghef_vy=-500..500,ghef_vx=501..}] run scoreboard players set rolling_x ghef_calc 1
+execute if entity @s[scores={ghef_vy=-500..500,ghef_vx=..-501}] run scoreboard players set rolling_x ghef_calc -1
+scoreboard players operation @s[scores={ghef_vy=-500..500,ghef_vx=501..}] ghef_vx -= @s ghef_friction
+scoreboard players operation @s[scores={ghef_vy=-500..500,ghef_vx=..-501}] ghef_vx += @s ghef_friction
+execute if score rolling_x ghef_calc matches 1 run scoreboard players set @s[scores={ghef_vy=-500..500,ghef_vx=..500}] ghef_vx 0
+execute if score rolling_x ghef_calc matches -1 run scoreboard players set @s[scores={ghef_vy=-500..500,ghef_vx=-500..}] ghef_vx 0
+
+scoreboard players set rolling_z ghef_calc 0
+execute if entity @s[scores={ghef_vy=-500..500,ghef_vz=501..}] run scoreboard players set rolling_z ghef_calc 1
+execute if entity @s[scores={ghef_vy=-500..500,ghef_vz=..-501}] run scoreboard players set rolling_z ghef_calc -1
+scoreboard players operation @s[scores={ghef_vy=-500..500,ghef_vz=501..}] ghef_vz -= @s ghef_friction
+scoreboard players operation @s[scores={ghef_vy=-500..500,ghef_vz=..-501}] ghef_vz += @s ghef_friction
+execute if score rolling_z ghef_calc matches 1 run scoreboard players set @s[scores={ghef_vy=-500..500,ghef_vz=..500}] ghef_vz 0
+execute if score rolling_z ghef_calc matches -1 run scoreboard players set @s[scores={ghef_vy=-500..500,ghef_vz=-500..}] ghef_vz 0
+
+# ignore motion less than 500 (0.005 blocks per tick)
 scoreboard players set @s[scores={ghef_vx=-500..500}] ghef_vx 0
 scoreboard players set @s[scores={ghef_vy=-500..500}] ghef_vy 0
 scoreboard players set @s[scores={ghef_vz=-500..500}] ghef_vz 0
-execute if entity @s[scores={ghef_vx=-500..500,ghef_vy=-500..500,ghef_vz=-500..500}] run return run tag @s remove ghef_moving
+execute if entity @s[scores={ghef_vx=0,ghef_vy=0,ghef_vz=0}] run return run tag @s remove ghef_moving
+
+# check collisions
+execute at @s run function ghef:physics/ball/check_plane_collision
 
 # cap motion to be less than radius
 scoreboard players operation radius ghef_calc = @s ghef_radius
@@ -19,9 +39,6 @@ scoreboard players operation radius ghef_calc *= #-1 ghef_data
 scoreboard players operation @s ghef_vx > radius ghef_calc
 scoreboard players operation @s ghef_vy > radius ghef_calc
 scoreboard players operation @s ghef_vz > radius ghef_calc
-
-# check collisions
-execute at @s run function ghef:physics/ball/check_plane_collision
 
 # apply motion
 execute store result entity @s Pos[0] double 0.00001 run scoreboard players operation @s ghef_x += @s ghef_vx
