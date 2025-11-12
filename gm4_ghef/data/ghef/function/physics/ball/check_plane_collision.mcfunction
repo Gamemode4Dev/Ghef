@@ -25,14 +25,23 @@ execute as @e[type=marker,tag=ghef_collision,distance=..25] run function ghef:ph
 # apply collision
 execute unless entity @e[type=marker,tag=ghef_colliding,distance=..25,limit=1] run return fail
 execute as @e[type=marker,tag=ghef_colliding,distance=..25] run function ghef:physics/plane/collision_response
+execute if score debug_y ghef_data matches 1 if entity @s[tag=ghef_moving] run tellraw @a {text:"HIT!",color:"red"}
 
 scoreboard players operation @s ghef_vx -= dvx ghef_calc
-scoreboard players operation @s ghef_vy -= dvy ghef_calc
+execute store result storage ghef:data temp.mul.a double 0.00001 run scoreboard players operation @s ghef_vy -= dvy ghef_calc
 scoreboard players operation @s ghef_vz -= dvz ghef_calc
 
 scoreboard players operation @s ghef_x += dx ghef_calc
 scoreboard players operation @s ghef_y += dy ghef_calc
 scoreboard players operation @s ghef_z += dz ghef_calc
+
+# coefficient of restitution
+execute store result storage ghef:data temp.mul.b double 0.00001 run scoreboard players get @s ghef_cor
+execute summon item_display run function ghef:math/zzz_helpers/multiply/calculate with storage ghef:data temp.mul
+execute store result score @s ghef_vy run data get storage ghef:data temp.value 100000
+
+# check floor collision
+execute if entity @e[type=marker,tag=ghef_floor,tag=ghef_colliding,distance=..25,limit=1] run function ghef:physics/ball/snap_to_floor
 
 # clean up
 execute if score markers ghef_data matches 1 run particle end_rod ~ ~ ~ 0 0 0 0 1
