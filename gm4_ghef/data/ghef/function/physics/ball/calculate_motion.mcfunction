@@ -22,7 +22,8 @@ execute if score rolling_z ghef_calc matches -1 run scoreboard players set @s[sc
 # check collisions and apply gravity
 execute unless entity @s[scores={ghef_vy=-500..500}] run tag @s remove ghef_on_ground
 execute if score debug_y ghef_data matches 1 run tellraw @a [{text:"Y="},{score:{name:"@s",objective:"ghef_y"},color:"aqua"},{text:" VY="},{score:{name:"@s",objective:"ghef_vy"},color:"light_purple"},{text:" (before collision)"}]
-execute at @s unless function ghef:physics/ball/check_plane_collision run scoreboard players operation @s[tag=!ghef_on_ground] ghef_vy -= @s ghef_gravity
+execute at @s run function ghef:physics/ball/check_plane_collision
+scoreboard players operation @s[tag=!ghef_on_ground] ghef_vy -= @s ghef_gravity
 execute if score debug_y ghef_data matches 1 run tellraw @a [{text:"Y="},{score:{name:"@s",objective:"ghef_y"},color:"aqua"},{text:" VY="},{score:{name:"@s",objective:"ghef_vy"},color:"light_purple"},{text:" (after collision/gravity)"}]
 
 # ignore motion less than 500 (0.005 blocks per tick)
