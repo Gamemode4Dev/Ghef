@@ -10,6 +10,7 @@ scoreboard objectives add ghef_level_id dummy
 scoreboard objectives add ghef_radius dummy
 scoreboard objectives add ghef_gravity dummy
 scoreboard objectives add ghef_cor dummy
+scoreboard objectives add ghef_air_friction dummy
 scoreboard objectives add ghef_friction dummy
 
 # positions
@@ -53,6 +54,12 @@ scoreboard objectives add ghef_nZ dummy
 scoreboard objectives add ghef_vx dummy
 scoreboard objectives add ghef_vy dummy
 scoreboard objectives add ghef_vz dummy
+
+# friction
+scoreboard objectives add ghef_fx dummy
+scoreboard objectives add ghef_fz dummy
+scoreboard objectives add ghef_fx_air dummy
+scoreboard objectives add ghef_fz_air dummy
 
 # constants
 function ghef:setup/const

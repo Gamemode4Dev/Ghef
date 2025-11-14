@@ -43,6 +43,9 @@ execute store result score @s ghef_vy run data get storage ghef:data temp.value 
 # check floor collision
 execute if entity @e[type=marker,tag=ghef_floor,tag=ghef_colliding,distance=..25,limit=1] run function ghef:physics/ball/snap_to_floor
 
+# calculate friction
+function ghef:physics/ball/calculate_friction
+
 # clean up
 execute if score markers ghef_data matches 1 run particle end_rod ~ ~ ~ 0 0 0 0 1
 return 1

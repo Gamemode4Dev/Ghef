@@ -17,3 +17,4 @@ execute store result entity @s data.ghef.radius double 0.00001 run scoreboard pl
 execute store result entity @s data.ghef.gravity double 0.00001 run scoreboard players set @s ghef_gravity 2500
 execute store result entity @s data.ghef.cor double 0.00001 run scoreboard players set @s ghef_cor 65000
 execute store result entity @s data.ghef.friction double 0.00001 run scoreboard players set @s ghef_friction 250
+execute store result entity @s data.ghef.air_friction double 0.00001 run scoreboard players set @s ghef_air_friction 50
