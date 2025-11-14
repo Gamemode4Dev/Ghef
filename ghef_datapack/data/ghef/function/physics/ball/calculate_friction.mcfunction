@@ -10,10 +10,7 @@ execute summon item_display run function ghef:math/zzz_helpers/distance/calculat
 execute store result score mag ghef_calc run data get storage ghef:data temp.distance 100
 
 # if magnitude is too low, apply fully to both axes
-execute if score mag ghef_calc matches 0 run scoreboard players operation @s ghef_fx = @s ghef_friction
-execute if score mag ghef_calc matches 0 run scoreboard players operation @s ghef_fx_air = @s ghef_air_friction
-execute if score mag ghef_calc matches 0 run scoreboard players operation @s ghef_fz = @s ghef_friction
-execute if score mag ghef_calc matches 0 run return run scoreboard players operation @s ghef_fz_air = @s ghef_air_friction
+execute if score mag ghef_calc matches 0 run return run function ghef:physics/ball/calculate_friction/full_force
 
 
 # calculate friction in x direction
