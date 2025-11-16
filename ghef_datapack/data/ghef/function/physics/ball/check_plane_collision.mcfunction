@@ -31,9 +31,9 @@ scoreboard players operation @s ghef_vx -= dvx ghef_calc
 execute store result storage ghef:data temp.mul.a double 0.00001 run scoreboard players operation @s ghef_vy -= dvy ghef_calc
 scoreboard players operation @s ghef_vz -= dvz ghef_calc
 
-scoreboard players operation @s ghef_x += dx ghef_calc
-scoreboard players operation @s ghef_y += dy ghef_calc
-scoreboard players operation @s ghef_z += dz ghef_calc
+scoreboard players operation @s ghef_x -= dx ghef_calc
+scoreboard players operation @s ghef_y -= dy ghef_calc
+scoreboard players operation @s ghef_z -= dz ghef_calc
 
 # coefficient of restitution
 execute store result storage ghef:data temp.mul.b double 0.00001 run scoreboard players get @s ghef_cor
