@@ -75,7 +75,7 @@ execute if score ac ghef_calc matches ..0 if score cb ghef_calc matches ..0 if s
 #    calculate and check segments for parallelogram surface
 execute unless entity @s[tag=ghef_collision_triangle] run function ghef:physics/plane/check_ball_collision/parallelogram/center_projection
 
-# if projected center is inside, penetration vector is plane vector
+# if projected center is inside, penetration vector is plane vector (negated if dist is negative)
 execute if score inside ghef_calc matches 1 run function ghef:physics/plane/check_ball_collision/store_penetration
 
 # if projected center is not inside, check distance to each line segment
