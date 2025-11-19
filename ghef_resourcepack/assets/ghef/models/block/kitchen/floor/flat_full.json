@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "ghef:block/kitchen/concrete",
+    "east": "ghef:block/kitchen/floor/side_east",
+    "north": "ghef:block/kitchen/floor/side_north",
+    "particle": "ghef:block/kitchen/floor_tiles",
+    "south": "ghef:block/kitchen/floor/side_south",
+    "up": "ghef:block/kitchen/floor_tiles",
+    "west": "ghef:block/kitchen/floor/side_west"
+  }
+}

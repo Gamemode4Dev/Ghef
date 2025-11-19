@@ -1,0 +1,43 @@
+{
+	"textures": {
+		"0": "ghef:item/plastic_fan_blade",
+		"particle": "ghef:item/plastic_fan_blade"
+	},
+	"elements": [
+		{
+			"from": [8.5, 7, 8],
+			"to": [13.5, 11, 8],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.5, 8, 6]},
+			"faces": {
+				"north": {"uv": [5, 0, 10, 4], "texture": "#0"},
+				"south": {"uv": [10, 0, 5, 4], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, 0, 20]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, 0, 20]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 0, 20]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 0, 20]
+		},
+		"ground": {
+			"rotation": [0, 0, 20]
+		},
+		"gui": {
+			"rotation": [0, 0, 20]
+		},
+		"head": {
+			"rotation": [0, 0, 20]
+		},
+		"fixed": {
+			"rotation": [0, 0, 20]
+		}
+	}
+}

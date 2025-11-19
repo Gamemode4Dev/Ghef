@@ -1,0 +1,49 @@
+{
+	"textures": {
+		"0": "ghef:item/ghef_dodecahedron/background"
+	},
+	"elements": [
+		{
+			"from": [7.5, 6.88641, 7.31179],
+			"to": [8.5, 6.88641, 8.06179],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 6.88737, 7.97007]},
+			"faces": {
+				"down": {"uv": [15, 0, 16, 1], "texture": "#0", "tintindex": 0}
+			}
+		},
+		{
+			"from": [7.5, 9.11359, 7.93821],
+			"to": [8.5, 9.11359, 8.68821],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 9.11263, 8.02993]},
+			"faces": {
+				"up": {"uv": [15, 0, 16, 1], "texture": "#0", "tintindex": 0}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, 72, 0]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, 72, 0]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 72, 0]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 72, 0]
+		},
+		"ground": {
+			"rotation": [0, 72, 0]
+		},
+		"gui": {
+			"rotation": [0, 72, 0]
+		},
+		"head": {
+			"rotation": [0, 72, 0]
+		},
+		"fixed": {
+			"rotation": [0, 72, 0]
+		}
+	}
+}

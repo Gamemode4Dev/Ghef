@@ -1,0 +1,33 @@
+{
+	"parent": "ghef:item/ghef_dodecahedron/templates/inner/1",
+	"textures": {
+		"0": "ghef:item/ghef_dodecahedron/dark",
+		"1": "ghef:item/ghef_dodecahedron/light"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [-98.75, -25.2, -110]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [-98.75, -25.2, -110]
+		},
+		"firstperson_righthand": {
+			"rotation": [-98.75, -25.2, -110]
+		},
+		"firstperson_lefthand": {
+			"rotation": [-98.75, -25.2, -110]
+		},
+		"ground": {
+			"rotation": [-98.75, -25.2, -110]
+		},
+		"gui": {
+			"rotation": [-98.75, -25.2, -110]
+		},
+		"head": {
+			"rotation": [-98.75, -25.2, -110]
+		},
+		"fixed": {
+			"rotation": [-98.75, -25.2, -110]
+		}
+	}
+}

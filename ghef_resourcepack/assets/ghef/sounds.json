@@ -1,0 +1,19 @@
+{
+    "main_piano": {"sounds": [
+        "ghef:music/main_piano"]},
+    
+    "main_pad": {"sounds": [
+        "ghef:music/main_pad"]},
+    
+    "main_drum": {"sounds": [
+        "ghef:music/main_drum"]},
+    
+    "main_bass": {"sounds": [
+        "ghef:music/main_bass"]},
+    
+    "melody_marimba": {"sounds": [
+        "ghef:music/melody_marimba"]},
+    
+    "melody_guitar": {"sounds": [
+        "ghef:music/melody_guitar"]} 
+}

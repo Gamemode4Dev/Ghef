@@ -1,0 +1,26 @@
+{
+	"textures": {
+		"0": "ghef:block/kitchen/concrete",
+		"1": "ghef:block/kitchen/floor_tiles",
+		"2": "ghef:block/kitchen/floor/side_east",
+		"3": "ghef:block/kitchen/floor/side_north",
+		"4": "ghef:block/kitchen/floor/side_south",
+		"5": "ghef:block/kitchen/floor/side_west",
+		"particle": "ghef:block/kitchen/concrete"
+	},
+	"elements": [
+		{
+			"from": [0, 8, 0],
+			"to": [16, 16, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 8, 0]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 8], "texture": "#3", "cullface": "north"},
+				"east": {"uv": [0, 0, 16, 8], "texture": "#2", "cullface": "east"},
+				"south": {"uv": [0, 0, 16, 8], "texture": "#4", "cullface": "south"},
+				"west": {"uv": [0, 0, 16, 8], "texture": "#5", "cullface": "west"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#1", "cullface": "up"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#0"}
+			}
+		}
+	]
+}

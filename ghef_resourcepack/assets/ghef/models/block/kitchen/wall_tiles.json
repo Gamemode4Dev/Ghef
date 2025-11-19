@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "ghef:block/kitchen/wall_tiles"
+    }
+  }

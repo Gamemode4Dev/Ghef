@@ -1,0 +1,18 @@
+{
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "ghef:item/water_puddle",
+		"particle": "ghef:item/water_puddle"
+	},
+	"elements": [
+		{
+			"from": [-8, 8, -8],
+			"to": [24, 8, 24],
+			"rotation": {"angle": 0, "axis": "y", "origin": [-8, 8, -8]},
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "texture": "#0"}
+			}
+		}
+	],
+	"display": {}
+}

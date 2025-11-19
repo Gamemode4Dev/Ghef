@@ -1,0 +1,52 @@
+{
+	"textures": {
+		"0": "ghef:item/dynamic/banana_peel/banana_peel",
+		"particle": "ghef:item/dynamic/banana_peel/banana_peel"
+	},
+	"elements": [
+		{
+			"from": [7, 0.975, 9],
+			"to": [9, 3.975, 9],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 2.975, 9]},
+			"faces": {
+				"north": {"uv": [6, 4, 8, 7], "texture": "#0"},
+				"south": {"uv": [4, 4, 6, 7], "texture": "#0"}
+			}
+		},
+		{
+			"from": [7, 1.1267, 9.76591],
+			"to": [9, 1.1267, 12.76591],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 1.1267, 9.76591]},
+			"faces": {
+				"up": {"uv": [4, 7, 6, 10], "texture": "#0"},
+				"down": {"uv": [6, 7, 8, 10], "rotation": 180, "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, -120, 0]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, -120, 0]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, -120, 0]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, -120, 0]
+		},
+		"ground": {
+			"rotation": [0, -120, 0]
+		},
+		"gui": {
+			"rotation": [0, -120, 0]
+		},
+		"head": {
+			"rotation": [0, -120, 0]
+		},
+		"fixed": {
+			"rotation": [0, -120, 0]
+		}
+	}
+}

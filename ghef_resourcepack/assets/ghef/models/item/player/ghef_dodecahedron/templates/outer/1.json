@@ -1,0 +1,26 @@
+{
+	"textures": {
+		"1": "ghef:item/ghef_dodecahedron/outline"
+	},
+	"elements": [
+		{
+			"light_emission":15,
+			"from": [7.38125, 6.62193, 7.14834],
+			"to": [8.61875, 6.62193, 8.07647],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 6.62312, 7.96296]},
+			"faces": {
+				"up": {"uv": [15, 0, 16, 1], "texture": "#1", "tintindex": 0}
+			}
+		},
+		{
+			"light_emission":15,
+			"from": [7.38125, 9.37807, 7.92353],
+			"to": [8.61875, 9.37807, 8.85166],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 9.37688, 8.03704]},
+			"faces": {
+				"down": {"uv": [15, 0, 16, 1], "texture": "#1", "tintindex": 0}
+			}
+		}
+	],
+	"display": {}
+}

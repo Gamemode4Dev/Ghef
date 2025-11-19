@@ -1,0 +1,74 @@
+{
+	"textures": {
+		"1": "ghef:block/floor_tiles",
+		"particle": "ghef:block/concrete"
+	},
+	"elements": [
+		{
+			"from": [4.0125, 7.50064, 16.94369],
+			"to": [11.9875, 8.00064, 25.88869],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"east": {"uv": [0, 16, 1, 0], "rotation": 90, "texture": "#1"},
+				"south": {"uv": [16, 0, 0.05, 1], "texture": "#1"},
+				"west": {"uv": [15, 0, 16, 16], "rotation": 90, "texture": "#1"},
+				"up": {"uv": [0, 0, 15.95, 16], "rotation": 180, "texture": "#1"},
+				"down": {"uv": [0, 16, 15.95, 0], "rotation": 180, "texture": "#1"}
+			}
+		},
+		{
+			"from": [4.0125, 7.50064, 7.99869],
+			"to": [11.9875, 8.00064, 16.94369],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [0, 15, 15.95, 16], "texture": "#1"},
+				"east": {"uv": [0, 16, 1, 0], "rotation": 90, "texture": "#1"},
+				"west": {"uv": [15, 0, 16, 16], "rotation": 90, "texture": "#1"},
+				"up": {"uv": [0, 0, 15.95, 16], "rotation": 180, "texture": "#1"},
+				"down": {"uv": [0, 16, 15.95, 0], "rotation": 180, "texture": "#1"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [26.565, 0, 0],
+			"translation": [0, 8, -8],
+			"scale": [2, 2, 2]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [26.565, 0, 0],
+			"translation": [0, 8, -8],
+			"scale": [2, 2, 2]
+		},
+		"firstperson_righthand": {
+			"rotation": [26.565, 0, 0],
+			"translation": [0, 8, -8],
+			"scale": [2, 2, 2]
+		},
+		"firstperson_lefthand": {
+			"rotation": [26.565, 0, 0],
+			"translation": [0, 8, -8],
+			"scale": [2, 2, 2]
+		},
+		"ground": {
+			"rotation": [26.565, 0, 0],
+			"translation": [0, 8, -8],
+			"scale": [2, 2, 2]
+		},
+		"gui": {
+			"rotation": [26.565, 0, 0],
+			"translation": [0, 8, -8],
+			"scale": [2, 2, 2]
+		},
+		"head": {
+			"rotation": [26.565, 0, 0],
+			"translation": [0, 8, -8],
+			"scale": [2, 2, 2]
+		},
+		"fixed": {
+			"rotation": [26.565, 0, 0],
+			"translation": [0, 8, -8],
+			"scale": [2, 2, 2]
+		}
+	}
+}

@@ -1,0 +1,7 @@
+{
+	"parent": "ghef:item/rat_gray",
+	"textures": {
+		"0": "ghef:item/rat_black",
+		"particle": "ghef:item/rat_black"
+	}
+}

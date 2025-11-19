@@ -1,0 +1,29 @@
+{
+	"parent": "ghef:item/ghef_dodecahedron/templates/outer/1",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [121.7, 31.7, -90]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [121.7, 31.7, -90]
+		},
+		"firstperson_righthand": {
+			"rotation": [121.7, 31.7, -90]
+		},
+		"firstperson_lefthand": {
+			"rotation": [121.7, 31.7, -90]
+		},
+		"ground": {
+			"rotation": [121.7, 31.7, -90]
+		},
+		"gui": {
+			"rotation": [121.7, 31.7, -90]
+		},
+		"head": {
+			"rotation": [121.7, 31.7, -90]
+		},
+		"fixed": {
+			"rotation": [121.7, 31.7, -90]
+		}
+	}
+}
